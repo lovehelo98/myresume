@@ -60,7 +60,9 @@
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
+      data = JSON.parse(data)
+      console.log(data)
+      if (data['ok'] == true) {
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
