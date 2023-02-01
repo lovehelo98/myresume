@@ -25,7 +25,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link id="theme" href="assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: MyResume - v4.10.0
@@ -796,6 +796,12 @@
     </div>
   </footer><!-- End Footer -->
 
+  <div class="floating-toggle">
+    <input type="checkbox" id="toggle-checkbox" class="toggle-checkbox">
+    <label for="toggle-checkbox" class="toggle-label"></label>
+  </div>
+
+
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -812,6 +818,30 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+ const themeStyle = document.getElementById("theme");
+ console.log(themeStyle)
+
+const toggleCheckbox = document.querySelector(".toggle-checkbox");
+const toggleLabel = document.querySelector(".toggle-label");
+
+toggleCheckbox.addEventListener("change", function() {
+  if (this.checked) {
+    themeStyle.setAttribute("href", "assets/css/dark_mode.css")
+    toggleLabel.style.backgroundColor = "white";
+    toggleLabel.querySelector("after").style.left = "26px";
+    
+    console.log(themeStyle)
+  } else {
+    themeStyle.setAttribute("href", "assets/css/style.css")
+    toggleLabel.style.backgroundColor = "black";
+    toggleLabel.querySelector("after").style.left = "2px";
+  }
+});
+
+
+  </script>
 
 </body>
 
